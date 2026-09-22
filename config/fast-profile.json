@@ -1,0 +1,72 @@
+{
+  "as_of": "2026-09-19",
+  "machine": {
+    "cpu": "Intel Core i5-9600K 3.70GHz, 6 physical / 6 logical",
+    "ram_gb": 32,
+    "gpu": "Radeon Pro Vega 48, 8 GB VRAM",
+    "os": "macOS 15"
+  },
+  "model": {
+    "file": "Qwen3.5-2B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+    "path_example": "/opt/llama-cpp-intel-mac-vega/models/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+    "size_bytes": 1270808032,
+    "sha256": "be3ccca13a9d1bc8b67165ea80bd103cd6151a37ad131183cc7ca388f78d9517"
+  },
+  "runtime": {
+    "binary": "~/.local/share/llama-vega/runtime/llama-server",
+    "ui": "~/.local/share/llama-vega/ui",
+    "listen": "http://127.0.0.1:18435/",
+    "alias": "HauhauCS-Qwen3.5-2B-Aggressive"
+  },
+  "launchagent": {
+    "label": "local.llama-vega",
+    "plist": "~/Library/LaunchAgents/local.llama-vega.plist",
+    "RunAtLoad": false,
+    "KeepAlive": false,
+    "Nice": null,
+    "note": "Manual start only. llama start / llama stop. Do not enable at login."
+  },
+  "flags": {
+    "--device": "Vulkan0",
+    "-ngl": "all",
+    "--load-mode": "none",
+    "-c": 262144,
+    "-np": 1,
+    "-b": 2048,
+    "-ub": 512,
+    "-t": 6,
+    "-tb": 6,
+    "-fa": "auto",
+    "--jinja": true,
+    "--reasoning": "off",
+    "--temp": 0.6,
+    "--top-p": 0.95,
+    "--top-k": 20,
+    "--min-p": 0,
+    "--cache-ram": 8192,
+    "--cors-origins": "localhost",
+    "-lv": 4,
+    "--poll": 1,
+    "--poll-batch": 1,
+    "--threads-http": 6,
+    "--metrics": true,
+    "--presence-penalty": 0,
+    "--repeat-penalty": 1,
+    "--tools": "all"
+  },
+  "measured": {
+    "prefill_best": "93.51 tok/s on 1741 prompt tokens (18s)",
+    "decode_that_run": "36.81 tok/s on 61 gen tokens",
+    "earlier_decode_short": "55.84 tok/s on 58 gen tokens (1.0s) with 77.58 tok/s prefill"
+  },
+  "do_not_change": [
+    "-c 262144 — native model window; shrinking to 32k was a mistaken experiment",
+    "-ngl all / --device Vulkan0 — 25/25 layers on Vega 48",
+    "-t 6 -tb 6 — all 6 cores; -t 2 was the old keep-the-iMac-usable cap",
+    "-fa auto — NOT -fa on (MoltenVK/AMD assigned Flash Attention to CPU, gen fell to ~11 tok/s)",
+    "no -ctk/-ctv q8_0 — KV quant wrecked decode on this stack",
+    "no Nice 5 — leftover desktop-priority cap",
+    "RunAtLoad false — do not autostart at login",
+    "--load-mode none — mmap was unproven here; leave it"
+  ]
+}

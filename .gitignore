@@ -1,0 +1,16 @@
+*.gguf
+*.safetensors
+*.bin
+*.tar.gz
+*.zip
+*.dylib
+*.log
+.env
+.env.*
+.DS_Store
+__pycache__/
+build/
+dist/
+runtime/
+models/
+.venv/

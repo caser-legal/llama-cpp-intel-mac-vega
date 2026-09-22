@@ -1,0 +1,33 @@
+{
+  "llama_cpp": {
+    "tag": "b10985",
+    "commit": "7609846557c50f9d984719a9e1e8c5f3d02f807b",
+    "source_sha256": "7e2e67163bd94ffddb6340a15121e6dc3e2195cd16dc3ded0855f78377478e62"
+  },
+  "shaderc": {
+    "version": "2026.3",
+    "platform": "sonoma-x86_64",
+    "bottle_sha256": "56086be512d92867582d5a72558cc524cab54f6c32a95df6606caedd007d79b0",
+    "formula_commit": "4cca0351efd02828ff8adcff9de9f144c19e793a"
+  },
+  "tested_dependencies": {
+    "cmake": "4.4.3",
+    "molten-vk": "1.4.2",
+    "vulkan-loader": "1.4.357.0",
+    "vulkan-headers": "1.4.357.0",
+    "spirv-headers": "1.4.357.0",
+    "openssl@3": "3.6.4"
+  },
+  "model": {
+    "repository": "HauhauCS/Qwen3.5-2B-Uncensored-HauhauCS-Aggressive",
+    "revision": "2bcf35c1ebf62c837c12c1aa90b578ff4717e831",
+    "file": "Qwen3.5-2B-Uncensored-HauhauCS-Aggressive-Q4_K_M.gguf",
+    "size_bytes": 1270808032,
+    "sha256": "be3ccca13a9d1bc8b67165ea80bd103cd6151a37ad131183cc7ca388f78d9517"
+  },
+  "hermes": {
+    "version": "0.21.3",
+    "commit": "c294e945eac0e501f022ae01c12c4c51aa95e06b",
+    "local_patch": "hermes-minimal-prompt.patch"
+  }
+}

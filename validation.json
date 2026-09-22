@@ -1,0 +1,81 @@
+{
+  "scope": "Single-machine smoke checks; not a comprehensive benchmark",
+  "hardware": {
+    "cpu": "Intel Core i5, six cores, 3.7 GHz",
+    "ram_gib": 32,
+    "gpu": "AMD Radeon Pro Vega 48",
+    "gpu_vram_gib": 8,
+    "macos": "15.7.9"
+  },
+  "runtime": {
+    "llama_cpp_commit": "7609846557c50f9d984719a9e1e8c5f3d02f807b",
+    "backend": "Vulkan through MoltenVK 1.4.2",
+    "gpu_layers": "25/25",
+    "gpu_model_buffer_mib": 1201.48,
+    "gpu_kv_buffer_mib": 96.0,
+    "gpu_recurrent_state_mib": 19.27,
+    "context_tokens": 8192,
+    "parallel_slots": 1,
+    "cpu_threads": 2,
+    "flash_attention": false,
+    "reasoning": false,
+    "verification_temperature": 0
+  },
+  "observations": [
+    {
+      "request": "17 times 23, answer only",
+      "answer": "391",
+      "elapsed_seconds": 2.22,
+      "generation_tokens_per_second": 7.8065,
+      "note": "First request included warm-up overhead"
+    },
+    {
+      "request": "Explain why the sky is blue in two sentences",
+      "answer_check": "Readable English describing wavelength-dependent Rayleigh scattering",
+      "elapsed_seconds": 1.61,
+      "output_tokens": 70,
+      "generation_tokens_per_second": 58.2202
+    },
+    {
+      "request": "Python function returning the largest number in a nonempty list",
+      "answer_check": "Requested function logic present; generated code was not executed",
+      "elapsed_seconds": 3.51,
+      "output_tokens": 180,
+      "finish_reason": "length",
+      "generation_tokens_per_second": 58.05
+    },
+    {
+      "request": "Name the three primary colors of light",
+      "answer_check": "Red, green, and blue",
+      "generation_tokens_per_second": 55.1095,
+      "note": "Checked again after installation as a LaunchAgent"
+    }
+  ],
+  "gpu_counters": {
+    "peak_activity_percent": 95,
+    "peak_device_utilization_percent": 100,
+    "scope": "GPU-wide counters; include other applications and are not process-exclusive"
+  },
+  "privacy": "No raw logs, personal prompts, unique hardware identifiers, or local paths included",
+  "hermes_prompt": {
+    "before_tokens": 13802,
+    "after_tokens": 1095,
+    "reduction_percent": 92.07,
+    "method": "Offline prompt assembly and llama.cpp tokenization of a greeting with the compact terminal/file tool schemas. No Hermes chat session or generation was run for this check.",
+    "system_prompt": "You are a helpful assistant."
+  },
+  "responsive_tuning": {
+    "two_cpu_threads_tokens_per_second": 56.1585,
+    "three_cpu_threads_first_run_tokens_per_second": 55.4122,
+    "three_cpu_threads_warm_tokens_per_second": 56.3518,
+    "selected_cpu_threads": 2,
+    "reasoning_default": "off",
+    "native_context": 262144,
+    "compaction_ratio": 0.85,
+    "compaction_trigger_without_output_reservation": 222822,
+    "idle_compaction": false,
+    "micro_compaction": false,
+    "swap_used_mb_observed": 0,
+    "note": "Short direct API measurements with other desktop applications open. No Hermes session was launched. This is not a full-window latency or desktop frame-time benchmark."
+  }
+}

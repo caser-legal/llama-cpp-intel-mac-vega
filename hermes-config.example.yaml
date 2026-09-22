@@ -1,0 +1,64 @@
+model:
+  default: HauhauCS-Qwen3.5-2B-Aggressive
+  provider: custom
+  base_url: http://127.0.0.1:18435/v1
+  api_key: local
+  api_mode: chat_completions
+  context_length: 262144
+  supports_vision: false
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+toolsets:
+  - terminal
+  - file
+platform_toolsets:
+  cli:
+    - terminal
+    - file
+agent:
+  base_system_prompt: You are a helpful assistant.
+  compact_tool_descriptions: true
+  system_prompt: ''
+  reasoning_effort: none
+  max_turns: 1000
+  coding_context: 'off'
+  execution_guidance: false
+  tool_use_enforcement: false
+  task_completion_guidance: false
+  parallel_tool_call_guidance: false
+  environment_probe: false
+  bot_mode_protocol: false
+terminal:
+  backend: local
+  cwd: '~'
+  timeout: 600
+approvals:
+  mode: 'off'
+  deny: []
+security:
+  tirith_enabled: false
+  protected_instruction_files: false
+  allow_private_urls: true
+hooks_auto_accept: true
+local_runtime:
+  enabled: false
+compression:
+  enabled: true
+  threshold: 0.85
+  threshold_tokens: null
+  model_thresholds: {}
+  idle_compact_after_seconds: 0
+  micro_compact: false
+  proactive_prune_tokens: 0
+  tail_mode: lean
+  target_ratio: 0.2
+  in_place: true
+display:
+  personality: ''
+auxiliary:
+  title_generation:
+    enabled: false
+  compression:
+    provider: main
+    timeout: 600
